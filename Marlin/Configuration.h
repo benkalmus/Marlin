@@ -1028,7 +1028,6 @@
 /*    //CUSTOM SETUP
 */
 #define Z_HOMING_HEIGHT 4
-#define SERVO_PROBE
 #define SERVO_DEPLOY 85
 #define SERVO_STOW 124
 //redacted
@@ -1097,7 +1096,7 @@
 /**
  * Z Servo Probe, such as an endstop switch on a rotating arm.
  */
-#define Z_PROBE_SERVO_NR 1       // Defaults to SERVO 0 connector.
+#define Z_PROBE_SERVO_NR 0       // Defaults to SERVO 0 connector.
 #define Z_SERVO_ANGLES { SERVO_DEPLOY, SERVO_STOW } // Z Servo Deploy and Stow angles
 
 /**
@@ -2974,12 +2973,12 @@
  * Set this manually if there are extra servos needing manual control.
  * Set to 0 to turn off servo support.
  */
-#define NUM_SERVOS 2 // Note: Servo index starts with 0 for M280-M282 commands
+#define NUM_SERVOS 1 // Note: Servo index starts with 0 for M280-M282 commands
 
 // (ms) Delay before the next move will start, to give the servo time to reach its target angle.
 // 300ms is a good value but you can try less delay.
 // If the servo can't reach the requested position, increase it.
-#define SERVO_DELAY { 800, 800 }
+#define SERVO_DELAY { 800 }
 
 // Only power servos during movement, otherwise leave off to prevent jitter
 //#define DEACTIVATE_SERVOS_AFTER_MOVE
