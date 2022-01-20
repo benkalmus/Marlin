@@ -576,13 +576,13 @@
 #define BED_OVERSHOOT    10   // (°C) Forbid temperatures over MAXTEMP - OVERSHOOT
 #define COOLER_OVERSHOOT  2   // (°C) Forbid temperatures closer than OVERSHOOT
 
-#define HOTEND_Kp   9.84
-#define HOTEND_Ki  0.5
-#define HOTEND_Kd 48.17
+#define HOTEND_Kp   21.73//9.84
+#define HOTEND_Ki   2.31//0.5
+#define HOTEND_Kd   51.17//48.17
 
-#define BED_Kp  984.88
-#define BED_Ki  193.9
-#define BED_Kd  1250.55
+#define BED_Kp  33.14//984.88
+#define BED_Ki  6.22//193.9
+#define BED_Kd  117.63//1250.55
 //===========================================================================
 //============================= PID Settings ================================
 //===========================================================================
@@ -1034,13 +1034,13 @@
 
 /*    //CUSTOM SETUP
 */
-#define Z_HOMING_HEIGHT 4
+#define Z_HOMING_HEIGHT 3
 #define SERVO_DEPLOY 85
 #define SERVO_STOW 124
 
 #define SENSOR_X_OFFSET   0
 #define SENSOR_Y_OFFSET   75
-#define SENSOR_Z_OFFSET   -11.90
+#define SENSOR_Z_OFFSET   -11.97
 
 /**
  * Enable this option for a probe connected to the Z-MIN pin.
@@ -1203,13 +1203,13 @@
 #define PROBING_MARGIN 10
 
 // X and Y axis travel speed (mm/min) between probes
-#define XY_PROBE_FEEDRATE (80*60)
+#define XY_PROBE_FEEDRATE (60*60)
 
 // Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
 #define Z_PROBE_FEEDRATE_FAST (3*60)
 
 // Feedrate (mm/min) for the "accurate" probe of each point
-#define Z_PROBE_FEEDRATE_SLOW (Z_PROBE_FEEDRATE_FAST / 2)
+#define Z_PROBE_FEEDRATE_SLOW 30
 
 /**
  * Probe Activation Switch
@@ -1257,7 +1257,7 @@
  * A total of 3 or more adds more slow probes, taking the average.
  */
 #define MULTIPLE_PROBING 3
-//#define EXTRA_PROBING    1
+#define EXTRA_PROBING    2
 
 /**
  * Z probes require clearance when deploying, stowing, and moving between
@@ -1276,7 +1276,7 @@
 #define Z_CLEARANCE_DEPLOY_PROBE    Z_HOMING_HEIGHT // Z Clearance for Deploy/Stow
 #define Z_CLEARANCE_BETWEEN_PROBES  Z_HOMING_HEIGHT // Z Clearance between probe points
 #define Z_CLEARANCE_MULTI_PROBE     Z_HOMING_HEIGHT // Z Clearance between multiple probes
-//#define Z_AFTER_PROBING           5 // Z position after probing is done
+#define Z_AFTER_PROBING           3 // Z position after probing is done
 
 #define Z_PROBE_LOW_POINT          -5 // Farthest distance below the trigger-point to go before stopping
 
@@ -1357,7 +1357,7 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR false
+#define INVERT_E0_DIR true
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
@@ -1667,7 +1667,7 @@
 
   //#define UBL_HILBERT_CURVE       // Use Hilbert distribution for less travel when probing multiple points
 
-  //#define UBL_MESH_EDIT_MOVES_Z     // Sophisticated users prefer no movement of nozzle
+  #define UBL_MESH_EDIT_MOVES_Z     // Sophisticated users prefer no movement of nozzle
   #define UBL_SAVE_ACTIVE_ON_M500   // Save the currently active mesh in the current slot on M500
 
   //#define UBL_Z_RAISE_WHEN_OFF_MESH 2.5 // When the nozzle is off the mesh, this value is used
@@ -1771,7 +1771,7 @@
 #endif
 
 // Homing speeds (mm/min)
-#define HOMING_FEEDRATE_MM_M { (40*60), (40*60), (3*60) }
+#define HOMING_FEEDRATE_MM_M { (60*60), (60*60), 30 }
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
